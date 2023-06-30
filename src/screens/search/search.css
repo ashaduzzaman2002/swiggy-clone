@@ -1,0 +1,23 @@
+/* SearchBox.css */
+
+  .search-button {
+    background-color: #db7c38 !important;
+    color: white;
+    border-color: #db7c38 !important;
+  }
+  
+  .search-results {
+    margin-top: 10px;
+  }
+  
+  .search-results .list-group-item {
+    background-color: #f9f9f9;
+    border-color: #db7c38;
+    color: #333;
+  }
+  
+  .no-results {
+    color: #db7c38;
+    font-weight: bold;
+  }
+  

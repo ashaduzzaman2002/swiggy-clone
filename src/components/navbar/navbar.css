@@ -1,0 +1,122 @@
+/* navbar section */
+.navbar {
+  box-shadow: 0 15px 40px -20px rgb(40 44 63 / 15%);
+  width: 100%;
+
+  background: #fff;
+  z-index: 1000;
+}
+.navbar .nav {
+  max-width: 1200px;
+  min-width: 1200px;
+  position: relative;
+  margin: 0 auto;
+  height: 80px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: block;
+  height: 49px;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-right: 16px;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+.navbar .location-div,
+.other {
+  position: relative;
+}
+.navbar .location-div {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  max-width: 300px;
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: -1px;
+  padding-right: 10px;
+  font-size: 14px;
+}
+
+.location-div .other {
+  font-weight: 700;
+  color: #3d4152;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #3d4152;
+}
+.location-div .other:hover {
+  color: #fc8019;
+  border-bottom: 2px solid #fc8019;
+}
+.location-div .location {
+  display: block;
+  font-weight: 300;
+  padding-left: 5px;
+  color: #686b78;
+}
+.location-div .arrow-down {
+  position: absolute;
+  right: -6%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #fc8019;
+  font-weight: 700;
+}
+.items {
+  display: flex;
+  align-items: center;
+}
+.items li {
+  /* margin-right: 36px; */
+  color: #3d4152;
+  font-size: 16px;
+  font-weight: 500;
+  list-style-type: none;
+}
+.items .nav-item {
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+  position: relative;
+  height: 80px;
+  cursor: pointer;
+}
+.items .nav-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #3d4152;
+  font-size: 16px;
+}
+
+.nav-item a span {
+  padding-left: 11px;
+}
+.items li:last-child a svg {
+  color: #60b246;
+}
+
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
+}
+
+.active {
+  color: #fc8019 !important;
+}
+
+.nav-link span {
+  color: #000000 !important;
+  font-size: 16px !important;
+}
+
+.nav-item a:hover,
+.nav-link span:hover {
+  color: #fc8019 !important;
+}
