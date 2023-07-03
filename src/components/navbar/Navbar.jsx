@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css';
+import { AppContext } from '../../context/AppContext';
 
 const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const { city, cities, selectCity, setCity } = useContext(AppContext);
 
 
   // Function to handle link click
@@ -16,8 +18,14 @@ const Navbar = () => {
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   };
-  return (
 
+  const handleCitySelection = (selectedCity) => {
+    selectCity(selectedCity);
+    setCity(selectedCity)
+
+  };
+
+  return (
     <nav className="navbar navbar-expand-lg fixed-top">
       <div className="container">
         <div className="d-flex align-items-center">
@@ -52,11 +60,32 @@ const Navbar = () => {
           </Link>
 
           <div className="location-div">
-            <span className="other">Other</span>
-            <span className="location">Delhi, India</span>
-            <span className="arrow-down">
-              <i className="fa-solid fa-angle-down"></i>
-            </span>
+            <ul className="navbar-nav">
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle other"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Your City
+                </a>
+                <ul className="dropdown-menu">
+                  {cities?.map((city) => (
+                    <li key={city._id}>
+                      <button
+                        className="dropdown-item"
+                         onClick={() => handleCitySelection(city.name)}
+                      >
+                        {city.name}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </ul>
+            <span className="location">{city}, India</span>
           </div>
         </div>
 
@@ -91,7 +120,7 @@ const Navbar = () => {
               <Link
                 style={{ marginRight: '2rem' }}
                 className="nav-link"
-                to="/menu"
+                to={`/menu/:${city}`}
                 onClick={handleLinkClick}
               >
                 <i className="fa-solid fa-utensils"></i>
@@ -100,11 +129,7 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link
-                className="nav-link"
-                to="/cart"
-                onClick={handleLinkClick}
-              >
+              <Link className="nav-link" to="/cart" onClick={handleLinkClick}>
                 <i className="fa-solid fa-cart-shopping"></i>
                 <span>Cart</span>
               </Link>

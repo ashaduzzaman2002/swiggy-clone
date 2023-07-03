@@ -43,14 +43,12 @@
 }
 
 .location-div .other {
-  font-weight: 700;
+  font-weight: 600;
   color: #3d4152;
-  padding-bottom: 2px;
-  border-bottom: 2px solid #3d4152;
+  font-size: 1rem;
 }
 .location-div .other:hover {
   color: #fc8019;
-  border-bottom: 2px solid #fc8019;
 }
 .location-div .location {
   display: block;
@@ -107,10 +105,6 @@
   box-shadow: none;
 }
 
-.active {
-  color: #fc8019 !important;
-}
-
 .nav-link span {
   color: #000000 !important;
   font-size: 16px !important;
@@ -119,4 +113,10 @@
 .nav-item a:hover,
 .nav-link span:hover {
   color: #fc8019 !important;
+}
+
+@media (max-width: 992px) {
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
 }

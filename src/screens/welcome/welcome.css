@@ -1,0 +1,33 @@
+.welcome-screen {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+  min-height: 100vh;
+}
+
+
+.location-btns {
+    width: 70%;
+    margin: auto;
+}
+
+.location-btns button {
+    border: 1px solid gray;
+    outline: none;
+    background: none;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.location-btns button:active {
+    background: #FEA116;
+    border-color: transparent;
+    color: #f8f9fa;
+}
+
+@media screen and (max-width: 800px) {
+    
+.location-btns {
+    width: 100%;
+}
+}
