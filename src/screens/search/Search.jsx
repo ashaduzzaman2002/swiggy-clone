@@ -1,12 +1,33 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './search.css';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
+import { baseURL } from '../../helper/api';
+import axios from 'axios';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const { restaurants, city } = useContext(AppContext);
+  const { city, setLoading } = useContext(AppContext);
+  const [restaurants, setRestaurants] = useState([]);
+
+  const getRestaurantOfCity = async () => {
+    try {
+      setLoading(true)
+      const { data } = await axios.get(
+        `${baseURL}/restaurants/${city}/all`
+      );
+      setRestaurants(data.restaurants);
+      setLoading(false)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getRestaurantOfCity();
+  }, []);
+
 
   const handleSearch = (e) => {
     const query = e.target.value;
@@ -21,6 +42,7 @@ const Search = () => {
       setSearchResults([]);
     }
   };
+
 
   return (
     <div className="container mt-5 pt-5" style={{ minHeight: '32vh' }}>
@@ -41,7 +63,7 @@ const Search = () => {
                 <ul className="search-results">
                   {searchResults.map((result, i) => (
                     <li key={i}>
-                      <Link className="" to={`/menu/${city}/${result.slug}`}>
+                      <Link className="" to={`/menu/restaurant/${result._id}`}>
                         {result.name}
                       </Link>
                     </li>

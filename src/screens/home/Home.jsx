@@ -1,11 +1,45 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import './home.css';
 import { Link, useNavigate } from 'react-router-dom';
 import ScrollTop from '../../components/ScrollTop/ScrollTop';
 import { AppContext } from '../../context/AppContext';
 
+// const reducer = (state, action) => {
+//   switch(action.type) {
+//     case 'FETCH_REQUEST':
+//       return {...state, loading: true};
+//     case 'FETCH_SUCCESS':
+//       return {...state, items: action.payload, loading: false}
+//     case 'FETCH_FAIL':
+//       return {...state, loading: false, error: action.payload}
+//     default:
+//       return state
+//   }
+// }
+
 const Home = () => {
-  
+  // const [{loading, error, items}, dispatch] = useReducer(reducer,{
+  //   loading: false,
+  //   error: '',
+
+  // })
+  const {loading} = useContext(AppContext)
+
+
+if(loading) return(
+  <div
+    id="spinner"
+    className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+  >
+    <div
+      className="spinner-border text-primary"
+      style={{ width: '3rem', height: '3rem' }}
+      role="status"
+    >
+      <span className="sr-only">Loading...</span>
+    </div>
+  </div>
+);
 
 
   return (

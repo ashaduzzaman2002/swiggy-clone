@@ -5,8 +5,8 @@ import { AppContext } from '../../context/AppContext';
 
 const Navbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const { city, cities, selectCity, setCity } = useContext(AppContext);
-
+  const { city, cities, selectCity, setCity, isLogin, user, loggout, cartItems } =
+    useContext(AppContext);
 
   // Function to handle link click
   const handleLinkClick = () => {
@@ -21,8 +21,7 @@ const Navbar = () => {
 
   const handleCitySelection = (selectedCity) => {
     selectCity(selectedCity);
-    setCity(selectedCity)
-
+    setCity(selectedCity);
   };
 
   return (
@@ -76,7 +75,7 @@ const Navbar = () => {
                     <li key={city._id}>
                       <button
                         className="dropdown-item"
-                         onClick={() => handleCitySelection(city.name)}
+                        onClick={() => handleCitySelection(city.name)}
                       >
                         {city.name}
                       </button>
@@ -120,7 +119,7 @@ const Navbar = () => {
               <Link
                 style={{ marginRight: '2rem' }}
                 className="nav-link"
-                to={`/menu/:${city}`}
+                to={`/menu/${city}`}
                 onClick={handleLinkClick}
               >
                 <i className="fa-solid fa-utensils"></i>
@@ -129,11 +128,44 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/cart" onClick={handleLinkClick}>
+              <Link
+                className="nav-link"
+                to="/cart"
+                style={{ position: 'relative' }}
+                onClick={handleLinkClick}
+              >
                 <i className="fa-solid fa-cart-shopping"></i>
                 <span>Cart</span>
+                {
+                  cartItems.length? <div
+                  className="d-flex align-items-center justify-content-center"
+                  style={{
+                    backgroundColor: 'red',
+                    position: 'absolute',
+                    top: 5,
+                    left: 10,
+                    height: 14,
+                    width: 14,
+                    borderRadius: '50%',
+                    color: 'white',
+                    fontSize: 10,
+                  }}
+                >
+                  {cartItems?.length}
+                </div>: null
+                }
+                
               </Link>
             </li>
+
+            {isLogin && user && (
+              <li className="nav-item">
+                <button onClick={() => loggout()} className="nav-link">
+                  <i className="fa fa-sign-out" aria-hidden="true"></i>{' '}
+                  <span>Logout</span>{' '}
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>
