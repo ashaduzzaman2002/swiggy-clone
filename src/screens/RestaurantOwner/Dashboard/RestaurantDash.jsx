@@ -9,11 +9,11 @@ const RestaurantDash = () => {
     <div className="restaurant-dash">
         
 
-      <div class="container" style={{paddingTop: '6rem'}}>
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+      <div className="container" style={{paddingTop: '6rem'}}>
+        <div className="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
         </div>
-        <div class="row">
+        <div className="row">
           <Card
             title={'Order (Today)'}
             total={'100'}
@@ -46,20 +46,20 @@ const RestaurantDash = () => {
 };
 
 const Card = ({ title, total, icon, classname }) => (
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class={`card border-left-${classname} shadow h-100 py-"`}>
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
+  <div className="col-xl-3 col-md-6 mb-4">
+    <div className={`card border-left-${classname} shadow h-100 py-"`}>
+      <div className="card-body">
+        <div className="row no-gutters align-items-center">
+          <div className="col mr-2">
             <div
-              class={`text-xs font-weight-bold text-${classname} text-uppercase mb-1`}
+              className={`text-xs font-weight-bold text-${classname} text-uppercase mb-1`}
             >
               {title}
             </div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">${total}</div>
+            <div className="h5 mb-0 font-weight-bold text-gray-800">${total}</div>
           </div>
-          <div class="col-auto">
-            <i class={icon}></i>
+          <div className="col-auto">
+            <i className={icon}></i>
           </div>
         </div>
       </div>

@@ -1,120 +1,157 @@
-.payment-info {
-  background: #fff;
-  padding: 10px;
-  border-radius: 6px;
-  color: #000;
-  font-weight: bold;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.product-details {
-  padding: 10px;
-}
-
-.cart {
-  background: #fff;
-}
-
-.p-about {
-  font-size: 12px;
-}
-
-.table-shadow {
-  -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
-  box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
-}
-
-.type {
-  font-weight: 400;
-  font-size: 10px;
-}
-
-label.radio {
-  cursor: pointer;
-}
-
-label.radio input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-label.radio span {
-  padding: 1px 12px;
-  border: 2px solid #ada9a9;
-  display: inline-block;
-  color: #8f37aa;
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 300;
-}
-
-label.radio input:checked + span {
-  border-color: #fff;
-  background-color: blue;
-  color: #fff;
-}
-
-.credit-inputs {
-  background: rgb(102, 102, 221);
-  color: #fff !important;
-  border-color: rgb(102, 102, 221);
-}
-
-.credit-inputs::placeholder {
-  color: #fff;
-  font-size: 13px;
-}
-
-.credit-card-label {
-  font-size: 9px;
-  font-weight: 300;
-}
-
-.form-control.credit-inputs:focus {
-  background: rgb(102, 102, 221);
-  border: rgb(102, 102, 221);
-}
-
-.line {
-  border-bottom: 1px solid rgb(102, 102, 221);
-}
-
-.information span {
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.information {
-  margin-bottom: 5px;
-}
-
-.items {
-  -webkit-box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.25);
-  box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.08);
-}
-
-.spec {
-  font-size: 11px;
-}
-
-.conunterBtn {
-  background-color: #ebe6e6;
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
+.cart-container .title {
+  margin-bottom: 5vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: default;
-  font-size: 20px;
-  padding-bottom: 5px;
-  user-select: none;
+  justify-content: space-between;
+  width: 100%;
+}
+.cart-container .card {
+  margin: auto;
+  width: 100%;
+  border: transparent;
 }
 
-.conunterBtn:active {
-  opacity: 0.5;
+.cart-container .cart {
+  padding: 4vh 5vh;
+}
+
+.cart-container .summary {
+  background-color: #ddd;
+  border-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65);
+}
+
+.cart-container .summary .col-2 {
+  padding: 0;
+}
+.cart-container .summary .col-10 {
+  padding: 0;
+}
+.cart-container .row {
+  margin: 0;
+}
+.cart-container .title b {
+  font-size: 1.5rem;
+}
+.cart-container .main {
+  margin: 0;
+  padding: 2vh 0;
+  width: 100%;
+}
+.cart-container .col-2,
+.col {
+  padding: 0 1vh;
+}
+.cart-container a {
+  padding: 0 1vh;
+}
+.cart-container .close {
+  margin-left: auto;
+  font-size: 0.8rem;
+  border: none;
+  background-color: transparent;
+}
+.cart-container img {
+  width: 3.5rem;
+}
+.cart-container .back-to-shop {
+  margin-top: 4.5rem;
+}
+.cart-container h5 {
+  margin-top: 4vh;
+}
+.cart-container hr {
+  margin-top: 1.25rem;
+}
+form {
+  padding: 2vh 0;
+}
+
+.cart-container input {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+.cart-container input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.cart-container .btn {
+  background-color: #db7c38;
+  border-color: #db7c38;
+  color: white;
+  width: 100%;
+  font-size: 0.7rem;
+  margin-top: 4vh;
+  padding: 1vh;
+  border-radius: 0;
+}
+.cart-container .btn:focus {
+  box-shadow: none;
+  outline: none;
+  box-shadow: none;
+  color: white;
+  -webkit-box-shadow: none;
+  -webkit-user-select: none;
+  transition: none;
+}
+.cart-container .btn:hover {
+  color: white;
+}
+.cart-container a {
+  color: black;
+}
+.cart-container a:hover {
+  color: black;
+  text-decoration: none;
+}
+.cart-container #code {
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.253),
+      rgba(255, 255, 255, 0.185)
+    ),
+    url('https://img.icons8.com/small/16/000000/long-arrow-right.png');
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: center;
+}
+
+.cart-btn {
+  border: none;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1002px) {
+}
+
+@media (max-width: 767px) {
+  .cart-container .summary {
+    margin-top: 2rem;
+    padding: 2rem;
+  }
+
+  .cart-container .card {
+    margin: 0vh auto;
+  }
+
+  .cart-container .cart {
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container-md,
+  .container-sm {
+    max-width: 90%;
+  }
+}
+
+
+@media screen and (max-width: 406px){
+  
 }

@@ -27,6 +27,7 @@ import Item from './screens/menu/Item';
 import AdminDash from './screens/admin/Dashboard/AdminDash';
 import AllRestaurant from './screens/admin/AllRestaurant/AllRestaurant';
 import AddRestaurant from './screens/admin/AddRestaurant/AddRestaurant';
+import CheckoutSuccess from './screens/checkout/CheckoutSuccess';
 
 function App() {
   return (
@@ -120,6 +121,9 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDash />} />
         <Route path="/admin/all-restaurant" element={<AllRestaurant />} />
         <Route path="/admin/add-restaurant" element={<AddRestaurant />} />
+
+
+        <Route path="/checkout/success" element={<CheckoutSuccess />} />
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
