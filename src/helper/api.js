@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = 'http://localhost:8000';
+export const baseURL = 'https://swiggy-backend.vercel.app';
 
 export const dbObject = axios.create({
     withCredentials: true,
