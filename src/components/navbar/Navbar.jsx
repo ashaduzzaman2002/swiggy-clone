@@ -74,7 +74,7 @@ const Navbar = () => {
                   {cities?.map((city) => (
                     <li key={city._id}>
                       <button
-                        className="dropdown-item"
+                        className="dropdown-item text-capitalize"
                         onClick={() => handleCitySelection(city.name)}
                       >
                         {city.name}

@@ -22,8 +22,10 @@ const Login = () => {
       validationSchema: loginSchema,
 
       onSubmit: async () => {
+        console.log(values);
         try {
           const { data } = await dbObject.post('/auth/login', values);
+          console.log(data);
           toast.success(data?.msg, tostOptions);
 
           setTimeout(() => {

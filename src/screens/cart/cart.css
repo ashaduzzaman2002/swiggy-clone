@@ -123,6 +123,7 @@ form {
 .cart-btn {
   border: none;
   background-color: transparent;
+  user-select: none;
 }
 
 @media screen and (max-width: 1002px) {

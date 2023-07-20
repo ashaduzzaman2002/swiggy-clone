@@ -102,7 +102,7 @@ const CartItem = ({ data }) => {
           >
             -
           </button>
-          <a style={{ cursor: 'default' }} className="border">
+          <a style={{ cursor: 'default', userSelect: 'none' }} className="border">
             {data.quantity}
           </a>
           <button

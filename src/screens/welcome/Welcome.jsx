@@ -60,6 +60,7 @@ const Welcome = () => {
             <button
               onClick={() => handleCitySelection(city.name)}
               key={city._id}
+              className='text-capitalize'
             >
               {city.name}
             </button>
