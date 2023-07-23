@@ -158,14 +158,14 @@ const Navbar = () => {
               </Link>
             </li>
 
-            {isLogin && user && (
+            {/* {isLogin && user && (
               <li className="nav-item">
                 <button onClick={() => loggout()} className="nav-link">
                   <i className="fa fa-sign-out" aria-hidden="true"></i>{' '}
                   <span>Logout</span>{' '}
                 </button>
               </li>
-            )}
+            )} */}
           </ul>
         </div>
       </div>

@@ -28,6 +28,9 @@ import AdminDash from './screens/admin/Dashboard/AdminDash';
 import AllRestaurant from './screens/admin/AllRestaurant/AllRestaurant';
 import AddRestaurant from './screens/admin/AddRestaurant/AddRestaurant';
 import CheckoutSuccess from './screens/checkout/CheckoutSuccess';
+import PaymentSuccess from './screens/payment/PaymentSuccess';
+import PaymentFail from './screens/payment/PaymentFail';
+import PlaceOrder from './screens/order/PlaceOrder';
 
 function App() {
   return (
@@ -83,15 +86,16 @@ function App() {
           }
         />
 
-        <Route path='/menu/item/:item_id' 
-        element= {
-          <>
+        <Route
+          path="/menu/item/:item_id"
+          element={
+            <>
               <Navbar />
               <Item />
               <Footer />
             </>
-        }
-          />
+          }
+        />
         <Route
           path="/login"
           element={
@@ -112,18 +116,18 @@ function App() {
         <Route path="/restaurant/items" element={<AllFoods />} />
         <Route path="/restaurant/add-items" element={<AddFood />} />
 
-
-        <Route
-          path="/admin"
-          element={<Navigate to={'/admin/dashboard'} />}
-        />
+        <Route path="/admin" element={<Navigate to={'/admin/dashboard'} />} />
 
         <Route path="/admin/dashboard" element={<AdminDash />} />
         <Route path="/admin/all-restaurant" element={<AllRestaurant />} />
         <Route path="/admin/add-restaurant" element={<AddRestaurant />} />
 
-
         <Route path="/checkout/success" element={<CheckoutSuccess />} />
+
+        {/* Payment */}
+        <Route path="/payment/success" element={<PaymentSuccess />} />
+        <Route path="/payment/failed" element={<PaymentFail />} />
+        <Route path="/confirm-order" element={<PlaceOrder />} />
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
@@ -148,6 +152,5 @@ const Layout = ({ children }) => {
     </>
   );
 };
-
 
 export default App;

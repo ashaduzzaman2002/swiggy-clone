@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
 import './cart.css';
 import { AppContext } from '../../context/AppContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { dbObject } from '../../helper/api';
 
 const Cart = () => {
   const { cartItems, totalPrice } = useContext(AppContext);
+
+  const navigate = useNavigate()
+
+  
 
   return (
     <div className="restaurant mt-5 pt-5">
@@ -17,7 +22,10 @@ const Cart = () => {
                   <b>Shopping Cart</b>
                 </h4>
 
-                <div className="text-muted">{cartItems?.length || 0} items</div>
+                {
+                  cartItems.length ? <div className="text-muted">{cartItems?.length || 0} items</div>: null
+                }
+                
               </div>
 
               <div className="row border-top">
@@ -44,35 +52,44 @@ const Cart = () => {
                 <span className="text-muted">Back to shop</span>
               </div>
             </div>
-            <div className="col-md-4 summary">
-              <div>
-                <h5>
-                  <b>Summary</b>
-                </h5>
-              </div>
-              <hr />
-              <div className="row">
-                <div className="col" style={{ paddingLeft: 0 }}>
-                  ITEMS {cartItems?.length || 0}
+
+            {cartItems?.length ? (
+              <div className="col-md-4 summary">
+                <div>
+                  <h5>
+                    <b>Summary</b>
+                  </h5>
                 </div>
-                <div className="col text-right">₹ {totalPrice.toFixed(2)}</div>
+                <hr />
+                <div className="row">
+                  <div className="col" style={{ paddingLeft: 0 }}>
+                    ITEMS {cartItems?.length || 0}
+                  </div>
+                  <div className="col text-right">
+                    ₹ {totalPrice.toFixed(2)}
+                  </div>
+                </div>
+                <form>
+                  <p>GIVE CODE</p>
+                  <input id="code" placeholder="Enter your code" />
+                </form>
+                <div
+                  className="row"
+                  style={{
+                    borderTop: '1px solid rgba(0,0,0,.1)',
+                    padding: '2vh 0px',
+                  }}
+                >
+                  <div className="col">TOTAL PRICE</div>
+                  <div className="col text-right">
+                    ₹ {totalPrice.toFixed(2)}
+                  </div>
+                </div>
+                <button onClick={() => navigate('/confirm-order', { state: { redirect: true } })} className="btn">
+                  CHECKOUT
+                </button>
               </div>
-              <form>
-                <p>GIVE CODE</p>
-                <input id="code" placeholder="Enter your code" />
-              </form>
-              <div
-                className="row"
-                style={{
-                  borderTop: '1px solid rgba(0,0,0,.1)',
-                  padding: '2vh 0px',
-                }}
-              >
-                <div className="col">TOTAL PRICE</div>
-                <div className="col text-right">₹ {totalPrice.toFixed(2)}</div>
-              </div>
-              <button className="btn">CHECKOUT</button>
-            </div>
+            ): null}
           </div>
         </div>
       </div>
@@ -102,7 +119,10 @@ const CartItem = ({ data }) => {
           >
             -
           </button>
-          <a style={{ cursor: 'default', userSelect: 'none' }} className="border">
+          <a
+            style={{ cursor: 'default', userSelect: 'none' }}
+            className="border"
+          >
             {data.quantity}
           </a>
           <button
@@ -126,47 +146,4 @@ const CartItem = ({ data }) => {
   );
 };
 
-const Card = ({ data }) => {
-  const { removeFromCart, decreaseQuantity, increaseQuantity } =
-    useContext(AppContext);
-  return (
-    <div className="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-      <div className="d-flex flex-row">
-        <img className="rounded " src={data.img} width="40" />
-        <div className="ml-2 ms-3">
-          <span className="font-weight-bold d-block">{data.name}</span>
-          <span className="spec">{data.desc}</span>
-        </div>
-      </div>
-      <div className="d-flex flex-row align-items-center">
-        <div
-          className="d-flex gap-3 align-items-center"
-          style={{ marginRight: '1rem' }}
-        >
-          <span
-            onClick={() => decreaseQuantity(data._id)}
-            className="conunterBtn"
-          >
-            -
-          </span>
-          <span className="d-block">{data.quantity}</span>
-          <span
-            onClick={() => increaseQuantity(data._id)}
-            className="conunterBtn"
-          >
-            +
-          </span>
-        </div>
-
-        <span className="d-block ml-5 font-weight-bold ms-3">
-          ${data.price}
-        </span>
-        <i
-          onClick={() => removeFromCart(data._id)}
-          className="bi bi-trash3-fill ms-3"
-        ></i>
-      </div>
-    </div>
-  );
-};
 export default Cart;
